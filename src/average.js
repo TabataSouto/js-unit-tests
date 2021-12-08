@@ -12,8 +12,23 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add your implementa;
+const average = (arr) => {
+  let arrEmpty = [];
+  let soma = 0;
+  let res;
+
+  // a) fazer um loop para pegar o valor de cada posição do array
+  // b) condição para dizer que se o elemento do array for de tipo diferente de number ou se estiver vazio, será undefined
+  // c) retornar a média dos valores recebidos, solando o elemnto de cada posição e dividido pelo número de posições
+  // referência para o uso do Math.round que arredonda o número para um númeor inteiro: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+  for (let el of arr) {
+    if (typeof (el) !== 'number' || arr === arrEmpty) {
+      return undefined;
+    }
+    soma += el;
+    res = Math.round(soma / arr.length);
+  }
+  return res;
 };
 
 module.exports = average;
