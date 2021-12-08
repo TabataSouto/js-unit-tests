@@ -25,14 +25,29 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    fail('Teste vazio!');
+    // fail('Teste vazio!');
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
+    expect(circle(!Number)).toBeUndefined();
+    const calcArea = parseInt(parseFloat(circle(3).area).toPrecision(2));
+    const calcRaio = parseInt(parseFloat(circle(3).radius).toPrecision(2));;
+    const calcCirc = parseInt(parseFloat(circle(3).circumference).toPrecision(2));;
     // Teste se circle retorna um objeto.
+    expect(circle(1)).toEqual({radius: 1, area: 3.14, circumference: 6.28});
     // Teste se o objeto retornado tem 3 propriedades.
+    // em toHavePropertym colocar o nome da chave e do valor separados por virgula
+    expect(circle(7)).toHaveProperty('radius', 'area', 'circumference');
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    expect(circle()).toBeUndefined();
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+    expect(circle(2)).toHaveProperty('circumference', 12.56);
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+    // parseInt analisa um argumento string e retorna um inteiro
+    // parseFloat() analisa um argumento string e retorna um número de ponto flutuante
+    expect(calcArea).toBe(28);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    expect(Object.values(circle(3))[0]).toBeCloseTo(3, 1);
+    expect(Object.values(circle(3))[1]).toBeCloseTo(28.26, 1);
+    expect(Object.values(circle(3))[2]).toBeCloseTo(18.84, 1);
   });
 });
