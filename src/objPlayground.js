@@ -33,8 +33,27 @@
   arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 1 ], [ 'sub', 0 ] ]
 */
 
-const calculator = (number1, number2) => {};
+const calculator = (number1, number2) => {
+  // const numInt1 = Math.round(number1);
+  // const numInt2 = Math.round(number2);
+  const obj = {
+    sum: number1 + number2,
+    mult: number1 * number2,
+    // referência para utilização do método que arredonda o resultado para baixo: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+    div: Math.floor(number1 / number2),
+    sub: number1 - number2,
+  };
+  return obj;
+};
 
-const arrayGenerator = (type, object) => {};
+const arrayGenerator = (type, object) => {
+  if (type === 'keys') {
+  return (Object.keys(object));
+  }
+  if (type === 'values') {
+    return Object.values(object);
+  }
+  return Object.entries(object);
+};
 
 module.exports = { calculator, arrayGenerator };
