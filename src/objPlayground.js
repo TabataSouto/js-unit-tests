@@ -48,12 +48,12 @@ const calculator = (number1, number2) => {
 
 const arrayGenerator = (type, object) => {
   if (type === 'keys') {
-  return (Object.keys(object));
+  return (Object.keys(object)); // retorna apenas a chave
   }
   if (type === 'values') {
-    return Object.values(object);
+    return Object.values(object); // retorna apenas o valor
   }
-  return Object.entries(object);
+  return Object.entries(object); // retorna cada chave e seu respectivo em arrays separados, com a chave e valor separado por vírgula;
 };
 
 module.exports = { calculator, arrayGenerator };
