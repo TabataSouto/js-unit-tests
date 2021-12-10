@@ -101,6 +101,7 @@ let consumption = [];
 const createMenu = (obj) => ({
     fetchMenu: () => obj,
     consumption,
+    order: (str) => {},
 });
 
 module.exports = createMenu;
