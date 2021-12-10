@@ -109,3 +109,5 @@ module.exports = createMenu;
 //   food: {'coxinha': 3.90, 'sanduiche', 9.90},
 //   drinks: {'agua': 3.90, 'cerveja': 6.90}
 // });
+
+// INFORMAÇÃO IMPORTANTE: o requisito 10 ainda não foi feito, fiz o commit sem querer
