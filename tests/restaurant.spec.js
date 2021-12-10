@@ -59,4 +59,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     expect(objetoRetornado.fetchMenu()).toEqual({ food: {}, drink: {} });
   });
   
+  it("3: Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu", () => {
+    // const objetoRetornado = createMenu(objetoQualquer);
+    // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
+    expect(createMenu({ candy: {} }).fetchMenu()).toHaveProperty('candy');
+  });
+  
 });
