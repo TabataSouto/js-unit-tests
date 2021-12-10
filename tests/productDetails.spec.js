@@ -45,7 +45,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
     expect(productDetails('Alcool gel', 'Máscara')[0]).not.toBe(productDetails('Alcool gel', 'Máscara')[1]);
     // Teste se os dois productIds terminam com 123.
-    // referencia para utilização do método slice: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+    // referencia para utilização do método slice para pegar os 3 ultimos carecteres do valor da chave desejada: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
     const param = productDetails('Alcool gel', 'Máscara');
     expect(param[0].details.productId.slice(-3)).toBe('123');
     expect(param[1].details.productId.slice(-3)).toBe('123');
