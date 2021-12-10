@@ -79,42 +79,20 @@
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-// PASSO 1: função com parâmetro obj deve retornar um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
-// adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode: 
-// - Definir a função `createMenu()`
-// - Definir o objeto que a `createMenu()` retorna, mas separadamente 
-// - E, depois, definir a função que será atribuída a `order`.
-// ```
-// const restaurant = {}
-//
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
-// // Essa função deve ser associada à chave `order` de `restaurant`
-
 const createMenu = (obj) => {
+  // declarado arr vazio dentro da função para que o consuption seja zerado sempre que a função for chamada;
+  let arr = [];
+
   const menu = {  
   fetchMenu: () => obj,
-    consumption: [],
+    consumption: arr,
+    order: (request) => arr.push(request),
+    pay: () => {
+      
+    },
   };
-  console.log(menu.consumption);
   return menu;
 };
-
-// const funcSeparada = (str) => {
-//   createMenu().consumption.push(str);
-//   console.log(createMenu().consumption);
-// };
-
-// funcSeparada('Olá');
-// funcSeparada('amigos');
-
-// console.log(createMenu().consumption);
 
 module.exports = createMenu;
 // const meuRestaurante = createMenu({
