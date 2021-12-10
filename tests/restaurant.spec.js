@@ -65,4 +65,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     expect(createMenu({ candy: {} }).fetchMenu()).toHaveProperty('candy');
   });
   
+  it("4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.", () => {
+  // const objetoRetornado = createMenu(objetoQualquer);
+  // objetoRetornado.consumption // Retorno: []
+    expect(createMenu({candy: {}}).consumption).toEqual([]);
+  // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
+  });
+  
 });
