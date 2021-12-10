@@ -36,7 +36,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   });
   it('Teste se o array retornado pela função contém dois itens dentro.', () => {
   // referência para utilização do método toHaveLength: https://jestjs.io/docs/expect#tohavelengthnumber
-  expect(productDetails('Alcool gel', 'Máscara')).toHaveLength(2);
+  expect(productDetails()).toHaveLength(2);
   });
   it('Teste se os dois itens dentro do array retornado pela função são objetos.', () => {
   // verifica uma posição por vez dentro do array que é um objeto
@@ -49,7 +49,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Teste se os dois productIds terminam com 123.', () => {
   // referencia para utilização do método slice para pegar os 3 ultimos carecteres do valor da chave desejada: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
   const param = productDetails('Alcool gel', 'Máscara');
-  expect(param[0].details.productId.slice(-3)).toBe('123');
-  expect(param[1].details.productId.slice(-3)).toBe('123');
+  expect(param[0].details.productId.endsWith('123')).toBeTruthy();
+  // expect(param[1].details.productId.slice(-3)).toBe('123');
+  expect(param[1].details.productId.endsWith('123')).toBeTruthy();
   });
 });

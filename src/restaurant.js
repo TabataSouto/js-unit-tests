@@ -97,12 +97,24 @@
 // const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
 // // Essa função deve ser associada à chave `order` de `restaurant`
 
-let consumption = [];
-const createMenu = (obj) => ({
-    fetchMenu: () => obj,
-    consumption,
-    order: (str) => {},
-});
+const createMenu = (obj) => {
+  const menu = {  
+  fetchMenu: () => obj,
+    consumption: [],
+  };
+  console.log(menu.consumption);
+  return menu;
+};
+
+// const funcSeparada = (str) => {
+//   createMenu().consumption.push(str);
+//   console.log(createMenu().consumption);
+// };
+
+// funcSeparada('Olá');
+// funcSeparada('amigos');
+
+// console.log(createMenu().consumption);
 
 module.exports = createMenu;
 // const meuRestaurante = createMenu({
