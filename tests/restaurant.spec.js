@@ -90,4 +90,13 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   expect(objetoRetornado.consumption).toEqual(["risoli", "agua", "chocolate", "pizza"]);
   });
   //
-});
+  it('7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.', () => {
+  const objetoRetornado = createMenu({ cady:{} });
+  objetoRetornado.order('pizza');
+  objetoRetornado.order('agua');
+  objetoRetornado.order('pizza');
+  // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
+  expect(objetoRetornado.consumption).toEqual(['pizza', 'agua', 'pizza'])
+  });
+  //
+  
