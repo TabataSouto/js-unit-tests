@@ -80,4 +80,14 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
   });
   
+  it('6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.', () => {
+  const objetoRetornado = createMenu({ cady:{} });
+  objetoRetornado.order("risoli");
+  objetoRetornado.order("agua");
+  objetoRetornado.order("chocolate");
+  objetoRetornado.order("pizza");
+  // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
+  expect(objetoRetornado.consumption).toEqual(["risoli", "agua", "chocolate", "pizza"]);
+  });
+  //
 });
