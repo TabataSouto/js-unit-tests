@@ -80,21 +80,22 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (obj) => {
+  let arr = [];
   const menu = {
     fetchMenu: () => obj,
-    consumption: [],
-    order: (request) => menu.consumption.push(request),
+    consumption: arr,
+    order: (request) => arr.push(request),
     // função para calcular o total de pedidos feitos;
     pay: () => {
       let total = 0;
-      createMenu(obj).consumption.forEach((element) => {
+      menu.consumption.forEach((element) => {
         // referência para utilização do includes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
         // includes verifica se dentro do array está inccluso o que é necessário
-        if (Object.keys(createMenu(obj).menu.fetchMenu().food).includes(element)) {
-          total += createMenu(obj).menu.fetchMenu().food[element];
+        if (Object.keys(menu.fetchMenu().food).includes(element)) {
+          total += menu.fetchMenu().food[element];
         }
-        if (Object.keys(createMenu(obj).menu.fetchMenu().drink).includes(element)) {
-          total += createMenu(obj).menu.fetchMenu().drink[element];
+        if (Object.keys(menu.fetchMenu().drinks).includes(element)) {
+          total += menu.fetchMenu().drinks[element];
         }
       });
       return total * 1.1;
@@ -103,15 +104,14 @@ const createMenu = (obj) => {
   return menu;
 };
 
-const menu = createMenu({
-  food: { coxinha: 3.90, sanduiche: 9.90 },
-  drinks: { agua: 3.90, cerveja: 6.90 },
-});
+// const menu = createMenu({
+//   food: { coxinha: 3.90, sanduiche: 9.90 },
+//   drinks: { agua: 3.90, cerveja: 6.90 },
+// });
 
-menu.order = 'coxinha';
-(menu.pay());
-
-console.log(menu.pay());
+// menu.order('coxinha');
+// menu.order('cerveja');
+// console.log(menu.pay());
 
 module.exports = createMenu;
 
