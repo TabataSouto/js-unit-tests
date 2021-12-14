@@ -80,17 +80,17 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (obj) => {
-  let arr = [];
   const menu = {
     fetchMenu: () => obj,
-    consumption: arr,
-    order: (request) => arr.push(request),
+    consumption: [],
+    order: (request) => menu.consumption.push(request),
     // função para calcular o total de pedidos feitos;
     pay: () => {
       let total = 0;
       menu.consumption.forEach((element) => {
         // referência para utilização do includes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
-        // includes verifica se dentro do array está inccluso o que é necessário
+        // recebi ajuda dos colegas Lucas Lisboa e Kamila Hydalgo para entendimento e realização do requisito;
+        // includes verifica se dentro do array está inccluso o que é necessário 
         if (Object.keys(menu.fetchMenu().food).includes(element)) {
           total += menu.fetchMenu().food[element];
         }
